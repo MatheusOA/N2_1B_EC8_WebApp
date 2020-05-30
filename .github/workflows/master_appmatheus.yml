@@ -20,8 +20,6 @@ jobs:
       with:
         java-version: '11'
 
-    - name: Build with Maven
-      run: mvn clean install
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
@@ -29,4 +27,3 @@ jobs:
         app-name: 'appmatheus'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_026aa928c3ac4a10bef5ed3f38851582 }}
-        package: '${{ github.workspace }}/target/*.war'
